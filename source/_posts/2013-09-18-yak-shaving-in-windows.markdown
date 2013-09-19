@@ -16,7 +16,7 @@ to develop under Windows. THE HORROR. Sure, I've got Virtualbox, and sure, I've
 got Vagrant. But hey, good luck running any useful vagrant commands with
 `cmd.exe`, a shell with all of the latest technologies from 1803. Add in janky
 graphics cards support from debian, opscode only providing chef servers for
-ubuntu(!) and RHEL, and I'm back staring at a series of �s because I've lost whatever juju
+Ubuntu(!) and RHEL, and I'm back staring at a series of �s because I've lost whatever juju
 was between Windows, puTTY, and bash.
 
 And let's not even get into bouncing from Apple's shortcuts, windows', and
