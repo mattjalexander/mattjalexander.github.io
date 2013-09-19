@@ -4,11 +4,11 @@
   <title><![CDATA[Category: yak-shaving | mu]]></title>
   <link href="http://mattjalexander.github.io/blog/categories/yak-shaving/atom.xml" rel="self"/>
   <link href="http://mattjalexander.github.io/"/>
-  <updated>2013-09-18T22:46:45-04:00</updated>
+  <updated>2013-09-19T07:39:24-04:00</updated>
   <id>http://mattjalexander.github.io/</id>
   <author>
     <name><![CDATA[Matt Alexander]]></name>
-    
+    <email><![CDATA[mattjalexander@gmail.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
@@ -27,7 +27,7 @@ to develop under Windows. THE HORROR. Sure, I&rsquo;ve got Virtualbox, and sure,
 got Vagrant. But hey, good luck running any useful vagrant commands with
 <code>cmd.exe</code>, a shell with all of the latest technologies from 1803. Add in janky
 graphics cards support from debian, opscode only providing chef servers for
-ubuntu(!) and RHEL, and I&rsquo;m back staring at a series of �s because I&rsquo;ve lost whatever juju
+Ubuntu(!) and RHEL, and I&rsquo;m back staring at a series of �s because I&rsquo;ve lost whatever juju
 was between Windows, puTTY, and bash.</p>
 
 <p>And let&rsquo;s not even get into bouncing from Apple&rsquo;s shortcuts, windows', and
