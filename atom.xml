@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[mu]]></title>
+  <link href="http://mattjalexander.github.io/atom.xml" rel="self"/>
+  <link href="http://mattjalexander.github.io/"/>
+  <updated>2013-09-18T22:46:45-04:00</updated>
+  <id>http://mattjalexander.github.io/</id>
+  <author>
+    <name><![CDATA[Matt Alexander]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[yak shaving in windows]]></title>
+    <link href="http://mattjalexander.github.io/blog/2013/09/18/yak-shaving-in-windows/"/>
+    <updated>2013-09-18T21:51:00-04:00</updated>
+    <id>http://mattjalexander.github.io/blog/2013/09/18/yak-shaving-in-windows</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://bandcamp.tv/linux-demotivators/debian.jpg" width="213" height="160"></p>
+
+<h1>The Pain</h1>
+
+<p>Given my work environment, I had totally forgotten the utter pain of attempting
+to develop under Windows. THE HORROR. Sure, I&rsquo;ve got Virtualbox, and sure, I&rsquo;ve
+got Vagrant. But hey, good luck running any useful vagrant commands with
+<code>cmd.exe</code>, a shell with all of the latest technologies from 1803. Add in janky
+graphics cards support from debian, opscode only providing chef servers for
+ubuntu(!) and RHEL, and I&rsquo;m back staring at a series of �s because I&rsquo;ve lost whatever juju
+was between Windows, puTTY, and bash.</p>
+
+<p>And let&rsquo;s not even get into bouncing from Apple&rsquo;s shortcuts, windows&#8217;, and
+puttys, in under 8 hours. I basically just mash right click, middle, click,
+CMD+V, and CTRL+V until something pastes.</p>
+
+<p>Part of all this pain is, I think, why I&rsquo;ve been drawn to systems
+administration and automation engineering &mdash; this friction of doing anything <strong>useful</strong> is as pointless
+and tasteless as apps involving staring at mammary glands.</p>
+
+<h1>The Joy</h1>
+
+<p>On the plus side, importing <a href="https://raw.github.com/mattjalexander/dotfiles/master/manual/putty.reg">putty.reg</a> totally worked. This is a blinking, fluorescent light in the path; one day, I&rsquo;ll be done screwing with this uselessness.</p>
+
+<h1>The Way Forward</h1>
+
+<ul>
+<li><p>I&rsquo;ve already ordered a larger SSD, fixing the mistake of being cheap, so I
+should be able to just run a Virtualbox of a Real OS. Which apparently means
+Ubuntu since Debian graphics continually whack out. And no, I&rsquo;m not installing
+cygwin, that&rsquo;s just insane. The hilarity here, of course, is that my workflow
+will inevitably mean running virtual machines inside of virtual machines, and
+sometimes VMs inside of VMs inside of VMs. THE JOYS OF TESTING SYSTEMS AS A
+WHOLE.</p></li>
+<li><p>I&rsquo;ll need to install a Chef/Puppet/Ansible/something for my local network.
+Chef is the obvious choice since that&rsquo;s what $CURRENT_WORK is into. Sadly, of
+my physical machines, the only &ldquo;proper&rdquo; server is debian in i686, which
+totally isn&rsquo;t provided by opscode. So, uh, either Enterprise chef or a chef
+server inside a vm. Either is good enough for a toy home network.</p></li>
+</ul>
+
+
+<h1>PS</h1>
+
+<p>I&rsquo;m still amazed that aspell is still the state-of-the-art for commandline spell
+checking. vim and aspell will outlast all of us.</p>
+]]></content>
+  </entry>
+  
+</feed>
