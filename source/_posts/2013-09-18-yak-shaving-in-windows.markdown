@@ -3,10 +3,10 @@ layout: post
 title: "yak shaving in windows"
 date: 2013-09-18 21:51
 comments: true
-categories: [yak-shaving] 
+categories: [yak-shaving,rant]
 ---
 
-{% img right http://bandcamp.tv/linux-demotivators/debian.jpg 213 160 %}
+{% img right images/debian.jpg 213 160 %}
 
 The Pain
 ========
