@@ -1,0 +1,26 @@
+/* Contact page */
+
+#contact {
+  font-family: 'Palatino Linotype', Palatino, serif;
+  font-size: 2em;
+}
+
+#contact .label, #contact .value {
+  display: block;
+  float: left;
+}
+
+#contact .label {
+  width: 100px;
+  text-align: right;
+  margin-right: 8px;
+  color: #999;
+}
+
+#contact a {
+  text-decoration: none;
+}
+
+#contact a:hover {
+  text-decoration: underline;
+}

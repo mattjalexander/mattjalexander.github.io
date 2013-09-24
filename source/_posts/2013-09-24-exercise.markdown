@@ -1,0 +1,45 @@
+---
+layout: post
+title: "Exercise"
+date: 2013-09-24 06:55
+comments: true
+categories:
+ - fitness
+---
+
+{% blockquote %}
+Pain is inevitable. Suffering is optional.
+{% endblockquote %}
+
+With all the shenanigans going around the intertubes about [CrossFit’s Dirty Little Secret](https://medium.com/health-fitness-1/97bcce70356d)
+ and [Pregnant women doing Crossfit](http://www.huffingtonpost.com/2013/09/19/pregnant-crossfit-mom-facebook_n_3956608.html), I thought I'd add in my few cents.
+First things first, Crossfit's getting a bad rap here, and there are many good Crossfit boxes out there. Instead of the generic and useless "Ask a medical provider" advise, here are some practical tips.
+
+# Learn technique first
+
+Take the time to learn **and practice** proper form. Books like [Starting Strength](http://www.amazon.com/Starting-Strength-ebook/dp/B006XJR5ZA/ref=sr_1_1?ie=UTF8&qid=1380020431&sr=8-1&keywords=starting+strength) can help, but you almost certainly want a good trainer if it's your first time.
+
+Even once you think you know proper form, make sure you practice it at least once per session. Establishing muscle memory frees up your mind to focus on the lift, making you strong and safer when you're not focused on the million tiny details of how your feet are planted, etc.
+
+# Learn how to fail
+
+It's vital that you learn how to fail and how to use safety equipment. Particularly when handling weights, be sure to learn and practice bailing from the lift. A few tips, but again, nothing beats a good trainer.
+* If you can't bench it 5 times, don't do it without a spotter.
+* Drop the weights behind you, and step forward.
+* Fear the false grip.
+* If you're hanging, pay attention to what would happen if you slipped. Use this as extra motivation to get out of pull up bands.
+
+# NEVER sacrifice form
+
+The realist in me says that yes, of course form is going to fall off as you reach your limits. However, if you're having to read this and are up in arms or worried about getting hurt, then you're still in no-exceptions mode. Just: don't. Speed and power are secondary to form; in fact, good form will help you perform faster and stronger.
+
+Pay attention to what you're doing, **especially** with Olympic lifts. I'm just going to ahead and make the bold claim that you should **never** perform Olympic lifts for time: they're highly technical (and yes, quick) movements. If your local culture is not reinforcing form at all times and over all times, find a new one.
+
+# Learn the difference between pain and injury
+
+One of the key benefits of exercise is that you learn to listen to your body. As you grow, again, pay attention to yourself. Push yourself, sure. TO THE MAX and all that. Peeing in the middle of a workout because you're DEDICATED and donthavetimemustgetapr, fine. Peeing in the middle of a workout because you literally can't hold it in? Well -- you might want to stop and think about things for a minute.
+
+You will sweat, you will shake. This is part of the appeal. But no one ever got fitter or stronger by causing self-injury, so -- and these themes may start to sound repetitive, but pay attention and find a good trainer.
+
+
+Good luck out there, and stay safe. It's a dangerous world, strong people are harder to kill, and people who enjoy what they do are more likely to repeat doing it.
