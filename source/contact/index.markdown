@@ -42,4 +42,9 @@ footer: true
     <span class="value"><a rel="external" href="http://plus.google.com/103477098383008224813">Matt Alexander</a></span>
     &nbsp;
   </p>
+  <p>
+    <span class="label">Github</span>
+    <span class="value"><a rel="external" href="http://github.com/mattjalexander">mattjalexander</a></span>
+    &nbsp;
+  </p>
 </div>

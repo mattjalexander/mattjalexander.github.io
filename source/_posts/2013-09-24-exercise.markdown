@@ -2,7 +2,7 @@
 layout: post
 title: "Exercise"
 date: 2013-09-24 06:55
-comments: true
+comments: false
 categories:
  - fitness
 ---

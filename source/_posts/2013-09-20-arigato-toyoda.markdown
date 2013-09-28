@@ -2,7 +2,7 @@
 layout: post
 title: "Arigatō Toyoda"
 date: 2013-09-20 08:36
-comments: true
+comments: false
 categories: [ 'devops', 'icons' ]
 ---
 

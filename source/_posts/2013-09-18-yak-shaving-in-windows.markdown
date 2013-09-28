@@ -2,7 +2,7 @@
 layout: post
 title: "yak shaving in windows"
 date: 2013-09-18 21:51
-comments: true
+comments: false
 categories: [yak-shaving,rant]
 ---
 
