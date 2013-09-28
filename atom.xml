@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[mu]]></title>
+  <link href="http://mattjalexander.github.io/atom.xml" rel="self"/>
+  <link href="http://mattjalexander.github.io/"/>
+  <updated>2013-09-28T15:47:10-07:00</updated>
+  <id>http://mattjalexander.github.io/</id>
+  <author>
+    <name><![CDATA[Matt Alexander]]></name>
+    <email><![CDATA[mattjalexander@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Using lambdas to organize Chef recipes]]></title>
+    <link href="http://mattjalexander.github.io/blog/2013/09/28/using-lambdas-to-organize-chef-recipes/"/>
+    <updated>2013-09-28T14:06:00-07:00</updated>
+    <id>http://mattjalexander.github.io/blog/2013/09/28/using-lambdas-to-organize-chef-recipes</id>
+    <content type="html"><![CDATA[<p>Let&rsquo;s explore for a moment, that you support an in-house app &mdash; let&rsquo;s call it <strong>dingus</strong>.</p>
+
+<p>So you, like any good Chef user, set out to make a chef recipe, let&rsquo;s call it <strong>chef-dingus</strong> (or maybe you like <strong>dingus-cookbook</strong> instead?).
+Let&rsquo;s start piecing this together.</p>
+
+<p>To put together <strong>dingus-cookbook</strong>, you&rsquo;re going to need</p>
+
+<ul>
+<li>configure a dingus user, various directories and config files, and permission them properly. Depending on dingus, this may mean an entire suite of logic inside your recipe and inside templates.</li>
+<li>Perhaps <a href="https://github.com/opscode-cookbooks/apparmor">Apparmor</a> is getting in your way, so let&rsquo;s include that recipe</li>
+<li>Add an <a href="https://github.com/opscode-cookbooks/apache2">Apache2</a> frontend</li>
+<li>Turns out you need <a href="https://github.com/fnichol/chef-rvm">rvm</a> too, so you put that in there.</li>
+<li>&hellip;</li>
+<li>You know better than I do what you company&rsquo;s <strong>dingus</strong> needs to be properly deployed.</li>
+</ul>
+
+
+<p>Twelve layers down the stack, you see where this is going. Your recipe is perhaps several hundreds lines long and you&rsquo;re having difficulty keeping track of ordering, particularly when you need to insert new logic (Hey, we want to deploy <strong>dingus</strong> onto RHEL in addition to Ubuntu, so now we have to properly configure SELinux!). Some of this is abstracted away, in say, attributes/defaults.rb or perhaps even a stack of <strong>company-basenode</strong> cookbooks.</p>
+
+<p>But that&rsquo;s not enough; you&rsquo;re still left with a recipe that&rsquo;s quite large and manages a single <strong>dingus</strong>. So how can we make this readable?
+Easy: <strong>lambdas</strong>.  Simply encase each step in a lambda, as so:</p>
+
+<figure class='code'><figcaption><span>Defining your lambdas </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">disable_apparmor</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">include_recipe</span> <span class="s1">&#39;apparmor&#39;</span>
+</span><span class='line'><span class="n">done</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">configure_dingus_user</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">user</span> <span class="n">dingus</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">action</span> <span class="n">create</span>
+</span><span class='line'>  <span class="n">done</span>
+</span><span class='line'><span class="n">done</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">configure_custom</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="k">do</span>
+</span><span class='line'>  <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'><span class="n">done</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">configure_apache2</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">include_recipe</span> <span class="s1">&#39;apache2&#39;</span>
+</span><span class='line'>  <span class="n">include_recipe</span> <span class="s1">&#39;apache2:mod_ssl&#39;</span>
+</span><span class='line'>  <span class="n">include_recipe</span> <span class="s1">&#39;apache2:php5&#39;</span>
+</span><span class='line'><span class="n">done</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">compile_time_essentials</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">include_recipe</span> <span class="s1">&#39;apt&#39;</span>
+</span><span class='line'>  <span class="n">include_recipe</span> <span class="s1">&#39;build-essentials&#39;</span>
+</span><span class='line'>  <span class="n">chef_gem</span> <span class="s1">&#39;mongodb&#39;</span>
+</span><span class='line'><span class="n">done</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So far, your recipe has done nothing at convergence, only parsed. At the end of your, just call the lambdas.</p>
+
+<figure class='code'><figcaption><span>λ </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">compile_time_essentials</span><span class="o">.</span><span class="n">call</span>
+</span><span class='line'><span class="n">disable_apparmor</span><span class="o">.</span><span class="n">call</span>
+</span><span class='line'><span class="n">configure_dingus_user</span><span class="o">.</span><span class="n">call</span>
+</span><span class='line'><span class="n">configure_apache2</span><span class="o">.</span><span class="n">call</span>
+</span><span class='line'><span class="n">configure_custom</span><span class="o">.</span><span class="n">call</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>What does organizing your recipe in this way net you? Several things, any one of which is powerful.</p>
+
+<ol>
+<li>You can trivially re order your recipe by focusing on the lambda calls. Simply being able to visualize the logical steps that the recipe is taking can help vastly.(*)</li>
+<li>(1.5) You can also trivially comment out lambdas if they&rsquo;re causing you trouble.</li>
+<li>It makes this giant <strong>dingus-cookbook</strong> easier to parse by breaking it into logical sub components. Perhaps along the way, your company starts making <strong>widgets</strong> in additions to <strong>dinguses</strong>, and so you pull out the apache2 lambda into it&rsquo;s own <strong>company-cookbook</strong>. Perhaps not.</li>
+<li>Since they&rsquo;re lambdas, you don&rsquo;t need to worry about scope. They exist within the recipe, and that&rsquo;s it.</li>
+<li>In addition, this helps you ensure code coverage and test sanity as your tests are now things like
+<code>test_compile_time_essentials</code> and <code>test_apache2</code> instead of choosing semi-random files to check permissions on.</li>
+</ol>
+
+
+<h1>Happy cooking!</h1>
+
+<p>(*) Do be aware of compile-time actions versus convergence actions with chef recipes. Simply because your code is at the top may not necessarily mean it occurs before another event. See <a href="http://docs.opscode.com/essentials_nodes_chef_run.html">About the chef-client Run</a> for more information.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Exercise]]></title>
+    <link href="http://mattjalexander.github.io/blog/2013/09/24/exercise/"/>
+    <updated>2013-09-24T06:55:00-07:00</updated>
+    <id>http://mattjalexander.github.io/blog/2013/09/24/exercise</id>
+    <content type="html"><![CDATA[<blockquote><p>Pain is inevitable. Suffering is optional.</p></blockquote>
+
+
+<p>With all the shenanigans going around the intertubes about <a href="https://medium.com/health-fitness-1/97bcce70356d">CrossFit’s Dirty Little Secret</a>
+ and <a href="http://www.huffingtonpost.com/2013/09/19/pregnant-crossfit-mom-facebook_n_3956608.html">Pregnant women doing Crossfit</a>, I thought I&rsquo;d add in my few cents.
+First things first, Crossfit&rsquo;s getting a bad rap here, and there are many good Crossfit boxes out there. Instead of the generic and useless &ldquo;Ask a medical provider&rdquo; advise, here are some practical tips.</p>
+
+<h1>Learn technique first</h1>
+
+<p>Take the time to learn <strong>and practice</strong> proper form. Books like <a href="http://www.amazon.com/Starting-Strength-ebook/dp/B006XJR5ZA/ref=sr_1_1?ie=UTF8&amp;qid=1380020431&amp;sr=8-1&amp;keywords=starting+strength">Starting Strength</a> can help, but you almost certainly want a good trainer if it&rsquo;s your first time.</p>
+
+<p>Even once you think you know proper form, make sure you practice it at least once per session. Establishing muscle memory frees up your mind to focus on the lift, making you strong and safer when you&rsquo;re not focused on the million tiny details of how your feet are planted, etc.</p>
+
+<h1>Learn how to fail</h1>
+
+<p>It&rsquo;s vital that you learn how to fail and how to use safety equipment. Particularly when handling weights, be sure to learn and practice bailing from the lift. A few tips, but again, nothing beats a good trainer.
+* If you can&rsquo;t bench it 5 times, don&rsquo;t do it without a spotter.
+* Drop the weights behind you, and step forward.
+* Fear the false grip.
+* If you&rsquo;re hanging, pay attention to what would happen if you slipped. Use this as extra motivation to get out of pull up bands.</p>
+
+<h1>NEVER sacrifice form</h1>
+
+<p>The realist in me says that yes, of course form is going to fall off as you reach your limits. However, if you&rsquo;re having to read this and are up in arms or worried about getting hurt, then you&rsquo;re still in no-exceptions mode. Just: don&rsquo;t. Speed and power are secondary to form; in fact, good form will help you perform faster and stronger.</p>
+
+<p>Pay attention to what you&rsquo;re doing, <strong>especially</strong> with Olympic lifts. I&rsquo;m just going to ahead and make the bold claim that you should <strong>never</strong> perform Olympic lifts for time: they&rsquo;re highly technical (and yes, quick) movements. If your local culture is not reinforcing form at all times and over all times, find a new one.</p>
+
+<h1>Learn the difference between pain and injury</h1>
+
+<p>One of the key benefits of exercise is that you learn to listen to your body. As you grow, again, pay attention to yourself. Push yourself, sure. TO THE MAX and all that. Peeing in the middle of a workout because you&rsquo;re DEDICATED and donthavetimemustgetapr, fine. Peeing in the middle of a workout because you literally can&rsquo;t hold it in? Well &mdash; you might want to stop and think about things for a minute.</p>
+
+<p>You will sweat, you will shake. This is part of the appeal. But no one ever got fitter or stronger by causing self-injury, so &mdash; and these themes may start to sound repetitive, but pay attention and find a good trainer.</p>
+
+<p>Good luck out there, and stay safe. It&rsquo;s a dangerous world, strong people are harder to kill, and people who enjoy what they do are more likely to repeat doing it.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Arigatō Toyoda]]></title>
+    <link href="http://mattjalexander.github.io/blog/2013/09/20/arigato-toyoda/"/>
+    <updated>2013-09-20T08:36:00-07:00</updated>
+    <id>http://mattjalexander.github.io/blog/2013/09/20/arigato-toyoda</id>
+    <content type="html"><![CDATA[<p>In case you missed it, Eiji Toyoda <a href="http://www.nytimes.com/2013/09/18/business/global/eiji-toyoda-promoter-of-toyota-way-dies-at-100.html?smid=tw-share&amp;_r=2&amp;">passed away</a> recently. Not only the architect of &ldquo;lean manufacturing&rdquo; and <a href="https://en.wikipedia.org/wiki/The_Toyota_Way">The Toyota Way</a>, his impact lives in the DevOps community.</p>
+
+<p>[Gene Kim] explains <a href="http://itrevolution.com/the-three-ways-principles-underpinning-devops/">The Three Ways</a> better than I can, but in short:</p>
+
+<ol>
+<li>Systems Thinking &ndash; Don&rsquo;t think about the parts of the system, think of the entire pipeline. If <strong>only</strong> dev or <strong>only</strong> ops completes their job, there&rsquo;s still no useful product.</li>
+<li>Amplify Feedback Loops &ndash; Improving communication and learning what to fix</li>
+<li>Culture of Continual Experimentation and Learning &ndash; Applying what you learned in the Second Way</li>
+</ol>
+
+
+<p>Compare this to the main four sections of The Toyota Way:</p>
+
+<ol>
+<li>Long-term philosophy</li>
+<li>The right process will produce the right results</li>
+<li>Add value to the organization by developing your people</li>
+<li>Continuously solving root problems drives organizational learning.</li>
+</ol>
+
+
+<p>This doesn&rsquo;t seem to map perfect, until you realize that working through sections meant:</p>
+
+<ul>
+<li>&ldquo;Long term philosophy&rdquo; turns out to mean the same thing as &ldquo;Systems Thinking&rdquo; once you actually understand the system.</li>
+<li>Developing and respect people is central to amplifying feedback looks &mdash; if you&rsquo;re not listening (and this means REALLY listening) to your customers, providers, or neighbors, you can&rsquo;t improve on their complaints.</li>
+<li>Kaizen is pretty much the exact definition of the willingness to continue to experiment and grow to improve the system and flow.</li>
+</ul>
+
+
+<p>Further watching and viewing can be found at:</p>
+
+<ul>
+<li><a href="http://www.amazon.com/Phoenix-Project-Helping-Business-ebook/dp/B00AZRBLHO/ref=sr_1_1?ie=UTF8&amp;qid=1379682018&amp;sr=8-1&amp;keywords=phoenix+project">The Phoenix Project</a></li>
+<li><a href="http://www.amazon.com/Toyota-Way-Management-Manufacturer-ebook/dp/B000SEGIVS/ref=sr_1_1?ie=UTF8&amp;qid=1379682037&amp;sr=8-1&amp;keywords=the+toyota+way">The Toyota Way</a></li>
+<li><a href="https://www.youtube.com/watch?v=3KpPBnEtRj4">DevOps Transformation</a>, Keynote Address at the 25th Large Installation System</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[yak shaving in windows]]></title>
+    <link href="http://mattjalexander.github.io/blog/2013/09/18/yak-shaving-in-windows/"/>
+    <updated>2013-09-18T21:51:00-07:00</updated>
+    <id>http://mattjalexander.github.io/blog/2013/09/18/yak-shaving-in-windows</id>
+    <content type="html"><![CDATA[<p><img class="right" src="images/debian.jpg" width="213" height="160"></p>
+
+<h1>The Pain</h1>
+
+<p>Given my work environment, I had totally forgotten the utter pain of attempting
+to develop under Windows. THE HORROR. Sure, I&rsquo;ve got Virtualbox, and sure, I&rsquo;ve
+got Vagrant. But hey, good luck running any useful vagrant commands with
+<code>cmd.exe</code>, a shell with all of the latest technologies from 1803. Add in janky
+graphics cards support from debian, opscode only providing chef servers for
+Ubuntu(!) and RHEL, and I&rsquo;m back staring at a series of �s because I&rsquo;ve lost whatever juju
+was between Windows, puTTY, and bash.</p>
+
+<p>And let&rsquo;s not even get into bouncing from Apple&rsquo;s shortcuts, windows&#8217;, and
+puttys, in under 8 hours. I basically just mash right click, middle, click,
+CMD+V, and CTRL+V until something pastes.</p>
+
+<p>Part of all this pain is, I think, why I&rsquo;ve been drawn to systems
+administration and automation engineering &mdash; this friction of doing anything <strong>useful</strong> is as pointless
+and tasteless as apps involving staring at mammary glands.</p>
+
+<h1>The Joy</h1>
+
+<p>On the plus side, importing <a href="https://raw.github.com/mattjalexander/dotfiles/master/manual/putty.reg">putty.reg</a> totally worked. This is a blinking, fluorescent light in the path; one day, I&rsquo;ll be done screwing with this uselessness.</p>
+
+<h1>The Way Forward</h1>
+
+<ul>
+<li><p>I&rsquo;ve already ordered a larger SSD, fixing the mistake of being cheap, so I
+should be able to just run a Virtualbox of a Real OS. Which apparently means
+Ubuntu since Debian graphics continually whack out. And no, I&rsquo;m not installing
+cygwin, that&rsquo;s just insane. The hilarity here, of course, is that my workflow
+will inevitably mean running virtual machines inside of virtual machines, and
+sometimes VMs inside of VMs inside of VMs. THE JOYS OF TESTING SYSTEMS AS A
+WHOLE.</p></li>
+<li><p>I&rsquo;ll need to install a Chef/Puppet/Ansible/something for my local network.
+Chef is the obvious choice since that&rsquo;s what $CURRENT_WORK is into. Sadly, of
+my physical machines, the only &ldquo;proper&rdquo; server is debian in i686, which
+totally isn&rsquo;t provided by opscode. So, uh, either Enterprise chef or a chef
+server inside a vm. Either is good enough for a toy home network.</p></li>
+</ul>
+
+
+<h1>PS</h1>
+
+<p>I&rsquo;m still amazed that aspell is still the state-of-the-art for commandline spell
+checking. vim and aspell will outlast all of us.</p>
+]]></content>
+  </entry>
+  
+</feed>
