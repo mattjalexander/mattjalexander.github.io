@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: devops | mu]]></title>
+  <link href="http://mattjalexander.github.io/blog/categories/devops/atom.xml" rel="self"/>
+  <link href="http://mattjalexander.github.io/"/>
+  <updated>2013-09-29T09:38:40-07:00</updated>
+  <id>http://mattjalexander.github.io/</id>
+  <author>
+    <name><![CDATA[Matt Alexander]]></name>
+    <email><![CDATA[mattjalexander@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Using lambdas to organize Chef recipes]]></title>
+    <link href="http://mattjalexander.github.io/blog/2013/09/28/using-lambdas-to-organize-chef-recipes/"/>
+    <updated>2013-09-28T14:06:00-07:00</updated>
+    <id>http://mattjalexander.github.io/blog/2013/09/28/using-lambdas-to-organize-chef-recipes</id>
+    <content type="html"><![CDATA[<p>Let&rsquo;s explore for a moment, that you support an in-house app &mdash; let&rsquo;s call it <strong>dingus</strong>.</p>
+
+<p>So you, like any good Chef user, set out to make a chef recipe, let&rsquo;s call it <strong>chef-dingus</strong> (or maybe you like <strong>dingus-cookbook</strong> instead?).
+Let&rsquo;s start piecing this together.</p>
+
+<p>To put together <strong>dingus-cookbook</strong>, you&rsquo;re going to need</p>
+
+<ul>
+<li>configure a dingus user, various directories and config files, and permission them properly. Depending on dingus, this may mean an entire suite of logic inside your recipe and inside templates.</li>
+<li>Perhaps <a href="https://github.com/opscode-cookbooks/apparmor">Apparmor</a> is getting in your way, so let&rsquo;s include that recipe</li>
+<li>Add an <a href="https://github.com/opscode-cookbooks/apache2">Apache2</a> frontend</li>
+<li>Turns out you need <a href="https://github.com/fnichol/chef-rvm">rvm</a> too, so you put that in there.</li>
+<li>&hellip;</li>
+<li>You know better than I do what you company&rsquo;s <strong>dingus</strong> needs to be properly deployed.</li>
+</ul>
+
+
+<p>Twelve layers down the stack, you see where this is going. Your recipe is perhaps several hundreds lines long and you&rsquo;re having difficulty keeping track of ordering, particularly when you need to insert new logic (Hey, we want to deploy <strong>dingus</strong> onto RHEL in addition to Ubuntu, so now we have to properly configure SELinux!). Some of this is abstracted away, in say, attributes/defaults.rb or perhaps even a stack of <strong>company-basenode</strong> cookbooks.</p>
+
+<p>But that&rsquo;s not enough; you&rsquo;re still left with a recipe that&rsquo;s quite large and manages a single <strong>dingus</strong>. So how can we make this readable?
+Easy: <strong>lambdas</strong>.  Simply encase each step in a lambda, as so:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Defining your lambdas </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">disable_apparmor</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">include_recipe</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">apparmor</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span>
+</span><span class='line'><span class="n">done</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;p&gt;configure_dingus_user = lambda do</span>
+</span><span class='line'><span class="sr">  user dingus do&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">action</span> <span class="n">create</span>
+</span><span class='line'><span class="o">&lt;</span><span class="sr">/code&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>  <span class="n">done</span>
+</span><span class='line'><span class="n">done</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;p&gt;configure_custom = lambda do</span>
+</span><span class='line'><span class="sr">  &amp;hellip;</span>
+</span><span class='line'><span class="sr">done&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="n">configure_apache2</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">include_recipe</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">apache2</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">include_recipe</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="ss">apache2</span><span class="p">:</span><span class="n">mod_ssl</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">include_recipe</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="ss">apache2</span><span class="p">:</span><span class="n">php5</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span>
+</span><span class='line'><span class="n">done</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;p&gt;compile_time_essentials = lambda do</span>
+</span><span class='line'><span class="sr">  include_recipe &amp;lsquo;apt&amp;rsquo;</span>
+</span><span class='line'><span class="sr">  include_recipe &amp;lsquo;build-essentials&amp;rsquo;</span>
+</span><span class='line'><span class="sr">  chef_gem &amp;lsquo;mongodb&amp;rsquo;</span>
+</span><span class='line'><span class="sr">done&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>So far, your recipe has done nothing at convergence, only parsed. At the end of your, just call the lambdas.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>λ </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">compile_time_essentials</span><span class="o">.</span><span class="n">call</span>
+</span><span class='line'><span class="n">disable_apparmor</span><span class="o">.</span><span class="n">call</span>
+</span><span class='line'><span class="n">configure_dingus_user</span><span class="o">.</span><span class="n">call</span>
+</span><span class='line'><span class="n">configure_apache2</span><span class="o">.</span><span class="n">call</span>
+</span><span class='line'><span class="n">configure_custom</span><span class="o">.</span><span class="n">call</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>What does organizing your recipe in this way net you? Several things, any one of which is powerful.</p>
+
+<ol>
+<li>You can trivially re order your recipe by focusing on the lambda calls. Simply being able to visualize the logical steps that the recipe is taking can help vastly.(*)</li>
+<li>(1.5) You can also trivially comment out lambdas if they&rsquo;re causing you trouble.</li>
+<li>It makes this giant <strong>dingus-cookbook</strong> easier to parse by breaking it into logical sub components. Perhaps along the way, your company starts making <strong>widgets</strong> in additions to <strong>dinguses</strong>, and so you pull out the apache2 lambda into it&rsquo;s own <strong>company-cookbook</strong>. Perhaps not.</li>
+<li>Since they&rsquo;re lambdas, you don&rsquo;t need to worry about scope. They exist within the recipe, and that&rsquo;s it.</li>
+<li>In addition, this helps you ensure code coverage and test sanity as your tests are now things like
+<code>test_compile_time_essentials</code> and <code>test_apache2</code> instead of choosing semi-random files to check permissions on.</li>
+</ol>
+
+
+<h1>Happy cooking!</h1>
+
+<p>(*) Do be aware of compile-time actions versus convergence actions with chef recipes. Simply because your code is at the top may not necessarily mean it occurs before another event. See <a href="http://docs.opscode.com/essentials_nodes_chef_run.html">About the chef-client Run</a> for more information.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Arigatō Toyoda]]></title>
+    <link href="http://mattjalexander.github.io/blog/2013/09/20/arigato-toyoda/"/>
+    <updated>2013-09-20T08:36:00-07:00</updated>
+    <id>http://mattjalexander.github.io/blog/2013/09/20/arigato-toyoda</id>
+    <content type="html"><![CDATA[<p>In case you missed it, Eiji Toyoda <a href="http://www.nytimes.com/2013/09/18/business/global/eiji-toyoda-promoter-of-toyota-way-dies-at-100.html?smid=tw-share&amp;_r=2&amp;">passed away</a> recently. Not only the architect of &ldquo;lean manufacturing&rdquo; and <a href="https://en.wikipedia.org/wiki/The_Toyota_Way">The Toyota Way</a>, his impact lives in the DevOps community.</p>
+
+<p>[Gene Kim] explains <a href="http://itrevolution.com/the-three-ways-principles-underpinning-devops/">The Three Ways</a> better than I can, but in short:</p>
+
+<ol>
+<li>Systems Thinking &ndash; Don&rsquo;t think about the parts of the system, think of the entire pipeline. If <strong>only</strong> dev or <strong>only</strong> ops completes their job, there&rsquo;s still no useful product.</li>
+<li>Amplify Feedback Loops &ndash; Improving communication and learning what to fix</li>
+<li>Culture of Continual Experimentation and Learning &ndash; Applying what you learned in the Second Way</li>
+</ol>
+
+
+<p>Compare this to the main four sections of The Toyota Way:</p>
+
+<ol>
+<li>Long-term philosophy</li>
+<li>The right process will produce the right results</li>
+<li>Add value to the organization by developing your people</li>
+<li>Continuously solving root problems drives organizational learning.</li>
+</ol>
+
+
+<p>This doesn&rsquo;t seem to map perfect, until you realize that working through sections meant:</p>
+
+<ul>
+<li>&ldquo;Long term philosophy&rdquo; turns out to mean the same thing as &ldquo;Systems Thinking&rdquo; once you actually understand the system.</li>
+<li>Developing and respect people is central to amplifying feedback looks &mdash; if you&rsquo;re not listening (and this means REALLY listening) to your customers, providers, or neighbors, you can&rsquo;t improve on their complaints.</li>
+<li>Kaizen is pretty much the exact definition of the willingness to continue to experiment and grow to improve the system and flow.</li>
+</ul>
+
+
+<p>Further watching and viewing can be found at:</p>
+
+<ul>
+<li><a href="http://www.amazon.com/Phoenix-Project-Helping-Business-ebook/dp/B00AZRBLHO/ref=sr_1_1?ie=UTF8&amp;qid=1379682018&amp;sr=8-1&amp;keywords=phoenix+project">The Phoenix Project</a></li>
+<li><a href="http://www.amazon.com/Toyota-Way-Management-Manufacturer-ebook/dp/B000SEGIVS/ref=sr_1_1?ie=UTF8&amp;qid=1379682037&amp;sr=8-1&amp;keywords=the+toyota+way">The Toyota Way</a></li>
+<li><a href="https://www.youtube.com/watch?v=3KpPBnEtRj4">DevOps Transformation</a>, Keynote Address at the 25th Large Installation System</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

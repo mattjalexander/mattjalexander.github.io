@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>yak shaving in windows - mu</title>
+  <meta name="author" content="Matt Alexander">
+
+  
+  <meta name="description" content="The Pain Given my work environment, I had totally forgotten the utter pain of attempting
+to develop under Windows. THE HORROR. Sure, I&rsquo;ve got &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mattjalexander.github.io/blog/2013/09/18/yak-shaving-in-windows">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="mu" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <div id="header-inner">
+    <span class="first"><a href="/">mu</a></span>
+    <span><a href="/blog/archives">archive</a></span>
+    <span><a href="/contact">contact</a></span>
+  </div>
+</hgroup>
+
+</header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Yak Shaving in Windows</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-18T21:51:00-07:00" pubdate data-updated="true">Sep 18<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img class="right" src="images/debian.jpg" width="213" height="160"></p>
+
+<h1>The Pain</h1>
+
+<p>Given my work environment, I had totally forgotten the utter pain of attempting
+to develop under Windows. THE HORROR. Sure, I&rsquo;ve got Virtualbox, and sure, I&rsquo;ve
+got Vagrant. But hey, good luck running any useful vagrant commands with
+<code>cmd.exe</code>, a shell with all of the latest technologies from 1803. Add in janky
+graphics cards support from debian, opscode only providing chef servers for
+Ubuntu(!) and RHEL, and I&rsquo;m back staring at a series of �s because I&rsquo;ve lost whatever juju
+was between Windows, puTTY, and bash.</p>
+
+<p>And let&rsquo;s not even get into bouncing from Apple&rsquo;s shortcuts, windows&#8217;, and
+puttys, in under 8 hours. I basically just mash right click, middle, click,
+CMD+V, and CTRL+V until something pastes.</p>
+
+<p>Part of all this pain is, I think, why I&rsquo;ve been drawn to systems
+administration and automation engineering &mdash; this friction of doing anything <strong>useful</strong> is as pointless
+and tasteless as apps involving staring at mammary glands.</p>
+
+<h1>The Joy</h1>
+
+<p>On the plus side, importing <a href="https://raw.github.com/mattjalexander/dotfiles/master/manual/putty.reg">putty.reg</a> totally worked. This is a blinking, fluorescent light in the path; one day, I&rsquo;ll be done screwing with this uselessness.</p>
+
+<h1>The Way Forward</h1>
+
+<ul>
+<li><p>I&rsquo;ve already ordered a larger SSD, fixing the mistake of being cheap, so I
+should be able to just run a Virtualbox of a Real OS. Which apparently means
+Ubuntu since Debian graphics continually whack out. And no, I&rsquo;m not installing
+cygwin, that&rsquo;s just insane. The hilarity here, of course, is that my workflow
+will inevitably mean running virtual machines inside of virtual machines, and
+sometimes VMs inside of VMs inside of VMs. THE JOYS OF TESTING SYSTEMS AS A
+WHOLE.</p></li>
+<li><p>I&rsquo;ll need to install a Chef/Puppet/Ansible/something for my local network.
+Chef is the obvious choice since that&rsquo;s what $CURRENT_WORK is into. Sadly, of
+my physical machines, the only &ldquo;proper&rdquo; server is debian in i686, which
+totally isn&rsquo;t provided by opscode. So, uh, either Enterprise chef or a chef
+server inside a vm. Either is good enough for a toy home network.</p></li>
+</ul>
+
+
+<h1>PS</h1>
+
+<p>I&rsquo;m still amazed that aspell is still the state-of-the-art for commandline spell
+checking. vim and aspell will outlast all of us.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Matt Alexander</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-18T21:51:00-07:00" pubdate data-updated="true">Sep 18<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/rant/'>rant</a>, <a class='category' href='/blog/categories/yak-shaving/'>yak-shaving</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/09/20/arigato-toyoda/" title="Next Post: Arigatō Toyoda">Arigatō Toyoda &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Matt Alexander -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>mu</title>
+  <title>Using lambdas to organize Chef recipes - mu</title>
   <meta name="author" content="Matt Alexander">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mattjalexander.github.io">
+  <link rel="canonical" href="http://mattjalexander.github.io/blog/2013/09/28/using-lambdas-to-organize-chef-recipes">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="mu" type="application/atom+xml">
@@ -46,15 +46,12 @@
 </header>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2013/09/28/using-lambdas-to-organize-chef-recipes/">Using Lambdas to Organize Chef Recipes</a></h1>
+      <h1 class="entry-title">Using Lambdas to Organize Chef Recipes</h1>
     
     
       <p class="meta">
@@ -77,7 +74,7 @@
   </header>
 
 
-  <div class="entry-content"><p>Let&rsquo;s explore for a moment, that you support an in-house app &mdash; let&rsquo;s call it <strong>dingus</strong>.</p>
+<div class="entry-content"><p>Let&rsquo;s explore for a moment, that you support an in-house app &mdash; let&rsquo;s call it <strong>dingus</strong>.</p>
 
 <p>So you, like any good Chef user, set out to make a chef recipe, let&rsquo;s call it <strong>chef-dingus</strong> (or maybe you like <strong>dingus-cookbook</strong> instead?).
 Let&rsquo;s start piecing this together.</p>
@@ -185,12 +182,63 @@ Easy: <strong>lambdas</strong>.  Simply encase each step in a lambda, as so:</p>
 
 <p>(*) Do be aware of compile-time actions versus convergence actions with chef recipes. Simply because your code is at the top may not necessarily mean it occurs before another event. See <a href="http://docs.opscode.com/essentials_nodes_chef_run.html">About the chef-client Run</a> for more information.</p>
 </div>
+
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Matt Alexander</span></span>
+
+      
+
+
+
+
+
+
+
+
   
 
 
-    </article>
-  </div>
+<time datetime="2013-09-28T14:06:00-07:00" pubdate data-updated="true">Sep 28<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/chef/'>chef</a>, <a class='category' href='/blog/categories/devops/'>devops</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/09/24/exercise/" title="Previous Post: Exercise">&laquo; Exercise</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+  
+</aside>
+
 
     </div>
   </div>

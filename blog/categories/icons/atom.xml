@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: icons | mu]]></title>
+  <link href="http://mattjalexander.github.io/blog/categories/icons/atom.xml" rel="self"/>
+  <link href="http://mattjalexander.github.io/"/>
+  <updated>2013-09-29T09:38:40-07:00</updated>
+  <id>http://mattjalexander.github.io/</id>
+  <author>
+    <name><![CDATA[Matt Alexander]]></name>
+    <email><![CDATA[mattjalexander@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Arigatō Toyoda]]></title>
+    <link href="http://mattjalexander.github.io/blog/2013/09/20/arigato-toyoda/"/>
+    <updated>2013-09-20T08:36:00-07:00</updated>
+    <id>http://mattjalexander.github.io/blog/2013/09/20/arigato-toyoda</id>
+    <content type="html"><![CDATA[<p>In case you missed it, Eiji Toyoda <a href="http://www.nytimes.com/2013/09/18/business/global/eiji-toyoda-promoter-of-toyota-way-dies-at-100.html?smid=tw-share&amp;_r=2&amp;">passed away</a> recently. Not only the architect of &ldquo;lean manufacturing&rdquo; and <a href="https://en.wikipedia.org/wiki/The_Toyota_Way">The Toyota Way</a>, his impact lives in the DevOps community.</p>
+
+<p>[Gene Kim] explains <a href="http://itrevolution.com/the-three-ways-principles-underpinning-devops/">The Three Ways</a> better than I can, but in short:</p>
+
+<ol>
+<li>Systems Thinking &ndash; Don&rsquo;t think about the parts of the system, think of the entire pipeline. If <strong>only</strong> dev or <strong>only</strong> ops completes their job, there&rsquo;s still no useful product.</li>
+<li>Amplify Feedback Loops &ndash; Improving communication and learning what to fix</li>
+<li>Culture of Continual Experimentation and Learning &ndash; Applying what you learned in the Second Way</li>
+</ol>
+
+
+<p>Compare this to the main four sections of The Toyota Way:</p>
+
+<ol>
+<li>Long-term philosophy</li>
+<li>The right process will produce the right results</li>
+<li>Add value to the organization by developing your people</li>
+<li>Continuously solving root problems drives organizational learning.</li>
+</ol>
+
+
+<p>This doesn&rsquo;t seem to map perfect, until you realize that working through sections meant:</p>
+
+<ul>
+<li>&ldquo;Long term philosophy&rdquo; turns out to mean the same thing as &ldquo;Systems Thinking&rdquo; once you actually understand the system.</li>
+<li>Developing and respect people is central to amplifying feedback looks &mdash; if you&rsquo;re not listening (and this means REALLY listening) to your customers, providers, or neighbors, you can&rsquo;t improve on their complaints.</li>
+<li>Kaizen is pretty much the exact definition of the willingness to continue to experiment and grow to improve the system and flow.</li>
+</ul>
+
+
+<p>Further watching and viewing can be found at:</p>
+
+<ul>
+<li><a href="http://www.amazon.com/Phoenix-Project-Helping-Business-ebook/dp/B00AZRBLHO/ref=sr_1_1?ie=UTF8&amp;qid=1379682018&amp;sr=8-1&amp;keywords=phoenix+project">The Phoenix Project</a></li>
+<li><a href="http://www.amazon.com/Toyota-Way-Management-Manufacturer-ebook/dp/B000SEGIVS/ref=sr_1_1?ie=UTF8&amp;qid=1379682037&amp;sr=8-1&amp;keywords=the+toyota+way">The Toyota Way</a></li>
+<li><a href="https://www.youtube.com/watch?v=3KpPBnEtRj4">DevOps Transformation</a>, Keynote Address at the 25th Large Installation System</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
