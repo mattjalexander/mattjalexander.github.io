@@ -4,6 +4,13 @@ title: "404"
 comments: false
 sharing: false
 footer: true
+random:
+  - -does a dog have buddha nature?
+  - -what is the sound of one hand clapping?
 ---
 
-<h2>mu</h2>
+<h1>
+{% random %}
+{{ page.random }}
+{% endrandom %}
+</h1>

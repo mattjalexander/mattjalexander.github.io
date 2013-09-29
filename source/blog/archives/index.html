@@ -5,6 +5,15 @@ footer: true
 ---
 
 <div id="blog-archives">
+
+<ul class="tags">
+{% for category in site.categories %}
+  <li style="font-size: {{ category | last | size | times: 600 | divided_by: site.categories.size }}%">
+    <a href="/blog/categories/{{ category | first | slugize }}/">{{ category | first }}</a>
+  </li>
+{% endfor %}
+</ul>
+
 {% for post in site.posts reverse %}
 {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
 {% unless year == this_year %}
