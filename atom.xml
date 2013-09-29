@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[mu]]></title>
-  <link href="http://mattjalexander.github.io/atom.xml" rel="self"/>
-  <link href="http://mattjalexander.github.io/"/>
-  <updated>2013-09-29T09:38:40-07:00</updated>
-  <id>http://mattjalexander.github.io/</id>
+  <link href="http://alexander.mu/atom.xml" rel="self"/>
+  <link href="http://alexander.mu/"/>
+  <updated>2013-09-29T09:41:17-07:00</updated>
+  <id>http://alexander.mu/</id>
   <author>
     <name><![CDATA[Matt Alexander]]></name>
     <email><![CDATA[mattjalexander@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Using lambdas to organize Chef recipes]]></title>
-    <link href="http://mattjalexander.github.io/blog/2013/09/28/using-lambdas-to-organize-chef-recipes/"/>
+    <link href="http://alexander.mu/blog/2013/09/28/using-lambdas-to-organize-chef-recipes/"/>
     <updated>2013-09-28T14:06:00-07:00</updated>
-    <id>http://mattjalexander.github.io/blog/2013/09/28/using-lambdas-to-organize-chef-recipes</id>
+    <id>http://alexander.mu/blog/2013/09/28/using-lambdas-to-organize-chef-recipes</id>
     <content type="html"><![CDATA[<p>Let&rsquo;s explore for a moment, that you support an in-house app &mdash; let&rsquo;s call it <strong>dingus</strong>.</p>
 
 <p>So you, like any good Chef user, set out to make a chef recipe, let&rsquo;s call it <strong>chef-dingus</strong> (or maybe you like <strong>dingus-cookbook</strong> instead?).
@@ -130,9 +130,9 @@ Easy: <strong>lambdas</strong>.  Simply encase each step in a lambda, as so:</p>
   
   <entry>
     <title type="html"><![CDATA[Exercise]]></title>
-    <link href="http://mattjalexander.github.io/blog/2013/09/24/exercise/"/>
+    <link href="http://alexander.mu/blog/2013/09/24/exercise/"/>
     <updated>2013-09-24T06:55:00-07:00</updated>
-    <id>http://mattjalexander.github.io/blog/2013/09/24/exercise</id>
+    <id>http://alexander.mu/blog/2013/09/24/exercise</id>
     <content type="html"><![CDATA[<blockquote><p>Pain is inevitable. Suffering is optional.</p></blockquote>
 
 
@@ -172,9 +172,9 @@ First things first, Crossfit&rsquo;s getting a bad rap here, and there are many 
   
   <entry>
     <title type="html"><![CDATA[Arigatō Toyoda]]></title>
-    <link href="http://mattjalexander.github.io/blog/2013/09/20/arigato-toyoda/"/>
+    <link href="http://alexander.mu/blog/2013/09/20/arigato-toyoda/"/>
     <updated>2013-09-20T08:36:00-07:00</updated>
-    <id>http://mattjalexander.github.io/blog/2013/09/20/arigato-toyoda</id>
+    <id>http://alexander.mu/blog/2013/09/20/arigato-toyoda</id>
     <content type="html"><![CDATA[<p>In case you missed it, Eiji Toyoda <a href="http://www.nytimes.com/2013/09/18/business/global/eiji-toyoda-promoter-of-toyota-way-dies-at-100.html?smid=tw-share&amp;_r=2&amp;">passed away</a> recently. Not only the architect of &ldquo;lean manufacturing&rdquo; and <a href="https://en.wikipedia.org/wiki/The_Toyota_Way">The Toyota Way</a>, his impact lives in the DevOps community.</p>
 
 <p>[Gene Kim] explains <a href="http://itrevolution.com/the-three-ways-principles-underpinning-devops/">The Three Ways</a> better than I can, but in short:</p>
@@ -218,9 +218,9 @@ First things first, Crossfit&rsquo;s getting a bad rap here, and there are many 
   
   <entry>
     <title type="html"><![CDATA[yak shaving in windows]]></title>
-    <link href="http://mattjalexander.github.io/blog/2013/09/18/yak-shaving-in-windows/"/>
+    <link href="http://alexander.mu/blog/2013/09/18/yak-shaving-in-windows/"/>
     <updated>2013-09-18T21:51:00-07:00</updated>
-    <id>http://mattjalexander.github.io/blog/2013/09/18/yak-shaving-in-windows</id>
+    <id>http://alexander.mu/blog/2013/09/18/yak-shaving-in-windows</id>
     <content type="html"><![CDATA[<p><img class="right" src="images/debian.jpg" width="213" height="160"></p>
 
 <h1>The Pain</h1>

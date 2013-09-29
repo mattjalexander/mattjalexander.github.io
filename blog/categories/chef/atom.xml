@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: chef | mu]]></title>
-  <link href="http://mattjalexander.github.io/blog/categories/chef/atom.xml" rel="self"/>
-  <link href="http://mattjalexander.github.io/"/>
-  <updated>2013-09-29T09:38:40-07:00</updated>
-  <id>http://mattjalexander.github.io/</id>
+  <link href="http://alexander.mu/blog/categories/chef/atom.xml" rel="self"/>
+  <link href="http://alexander.mu/"/>
+  <updated>2013-09-29T09:41:17-07:00</updated>
+  <id>http://alexander.mu/</id>
   <author>
     <name><![CDATA[Matt Alexander]]></name>
     <email><![CDATA[mattjalexander@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Using lambdas to organize Chef recipes]]></title>
-    <link href="http://mattjalexander.github.io/blog/2013/09/28/using-lambdas-to-organize-chef-recipes/"/>
+    <link href="http://alexander.mu/blog/2013/09/28/using-lambdas-to-organize-chef-recipes/"/>
     <updated>2013-09-28T14:06:00-07:00</updated>
-    <id>http://mattjalexander.github.io/blog/2013/09/28/using-lambdas-to-organize-chef-recipes</id>
+    <id>http://alexander.mu/blog/2013/09/28/using-lambdas-to-organize-chef-recipes</id>
     <content type="html"><![CDATA[<p>Let&rsquo;s explore for a moment, that you support an in-house app &mdash; let&rsquo;s call it <strong>dingus</strong>.</p>
 
 <p>So you, like any good Chef user, set out to make a chef recipe, let&rsquo;s call it <strong>chef-dingus</strong> (or maybe you like <strong>dingus-cookbook</strong> instead?).

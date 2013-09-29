@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://mattjalexander.github.io/sitemap.xml 
+Sitemap: http://alexander.mu/sitemap.xml 

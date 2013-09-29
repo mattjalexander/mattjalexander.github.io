@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: fitness | mu]]></title>
-  <link href="http://mattjalexander.github.io/blog/categories/fitness/atom.xml" rel="self"/>
-  <link href="http://mattjalexander.github.io/"/>
-  <updated>2013-09-29T09:38:40-07:00</updated>
-  <id>http://mattjalexander.github.io/</id>
+  <link href="http://alexander.mu/blog/categories/fitness/atom.xml" rel="self"/>
+  <link href="http://alexander.mu/"/>
+  <updated>2013-09-29T09:41:17-07:00</updated>
+  <id>http://alexander.mu/</id>
   <author>
     <name><![CDATA[Matt Alexander]]></name>
     <email><![CDATA[mattjalexander@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Exercise]]></title>
-    <link href="http://mattjalexander.github.io/blog/2013/09/24/exercise/"/>
+    <link href="http://alexander.mu/blog/2013/09/24/exercise/"/>
     <updated>2013-09-24T06:55:00-07:00</updated>
-    <id>http://mattjalexander.github.io/blog/2013/09/24/exercise</id>
+    <id>http://alexander.mu/blog/2013/09/24/exercise</id>
     <content type="html"><![CDATA[<p><blockquote><p>Pain is inevitable. Suffering is optional.</p></blockquote></p>
 
 <p>With all the shenanigans going around the intertubes about <a href="https://medium.com/health-fitness-1/97bcce70356d">CrossFit’s Dirty Little Secret</a>

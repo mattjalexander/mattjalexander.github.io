@@ -1,41 +1,39 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://mattjalexander.github.io/blog/2013/09/18/yak-shaving-in-windows/</loc>
+        <loc>http://alexander.mu/blog/2013/09/18/yak-shaving-in-windows/</loc>
         <lastmod>2013-09-29T09:37:41-07:00</lastmod>
     </url>
     <url>
-        <loc>http://mattjalexander.github.io/blog/2013/09/20/arigato-toyoda/</loc>
+        <loc>http://alexander.mu/blog/2013/09/20/arigato-toyoda/</loc>
         <lastmod>2013-09-29T09:37:41-07:00</lastmod>
     </url>
     <url>
-        <loc>http://mattjalexander.github.io/blog/2013/09/24/exercise/</loc>
+        <loc>http://alexander.mu/blog/2013/09/24/exercise/</loc>
         <lastmod>2013-09-29T09:37:41-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://mattjalexander.github.io/blog/2013/09/28/using-lambdas-to-organize-chef-recipes/
-        </loc>
+        <loc>http://alexander.mu/blog/2013/09/28/using-lambdas-to-organize-chef-recipes/</loc>
         <lastmod>2013-09-29T09:37:41-07:00</lastmod>
     </url>
     <url>
-        <loc>http://mattjalexander.github.io/robots.txt</loc>
+        <loc>http://alexander.mu/robots.txt</loc>
         <lastmod>2013-09-29T09:37:41-07:00</lastmod>
     </url>
     <url>
-        <loc>http://mattjalexander.github.io/</loc>
+        <loc>http://alexander.mu/</loc>
         <lastmod>2013-09-29T09:37:41-07:00</lastmod>
     </url>
     <url>
-        <loc>http://mattjalexander.github.io/contact/</loc>
+        <loc>http://alexander.mu/contact/</loc>
         <lastmod>2013-09-29T09:37:41-07:00</lastmod>
     </url>
     <url>
-        <loc>http://mattjalexander.github.io/404.html</loc>
+        <loc>http://alexander.mu/404.html</loc>
         <lastmod>2013-09-29T09:37:41-07:00</lastmod>
     </url>
     <url>
-        <loc>http://mattjalexander.github.io/blog/archives/</loc>
+        <loc>http://alexander.mu/blog/archives/</loc>
         <lastmod>2013-09-29T09:37:41-07:00</lastmod>
     </url>
 </urlset>
