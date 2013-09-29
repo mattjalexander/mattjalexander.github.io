@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: icons | mu]]></title>
-  <link href="http://mattjalexander.github.io/blog/categories/icons/atom.xml" rel="self"/>
-  <link href="http://mattjalexander.github.io/"/>
-  <updated>2013-09-29T09:31:05-07:00</updated>
-  <id>http://mattjalexander.github.io/</id>
+  <link href="http://alexander.mu/blog/categories/icons/atom.xml" rel="self"/>
+  <link href="http://alexander.mu/"/>
+  <updated>2013-09-29T09:34:38-07:00</updated>
+  <id>http://alexander.mu/</id>
   <author>
     <name><![CDATA[Matt Alexander]]></name>
     <email><![CDATA[mattjalexander@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Arigatō Toyoda]]></title>
-    <link href="http://mattjalexander.github.io/blog/2013/09/20/arigato-toyoda/"/>
+    <link href="http://alexander.mu/blog/2013/09/20/arigato-toyoda/"/>
     <updated>2013-09-20T08:36:00-07:00</updated>
-    <id>http://mattjalexander.github.io/blog/2013/09/20/arigato-toyoda</id>
+    <id>http://alexander.mu/blog/2013/09/20/arigato-toyoda</id>
     <content type="html"><![CDATA[<p>In case you missed it, Eiji Toyoda <a href="http://www.nytimes.com/2013/09/18/business/global/eiji-toyoda-promoter-of-toyota-way-dies-at-100.html?smid=tw-share&amp;_r=2&amp;">passed away</a> recently. Not only the architect of &ldquo;lean manufacturing&rdquo; and <a href="https://en.wikipedia.org/wiki/The_Toyota_Way">The Toyota Way</a>, his impact lives in the DevOps community.</p>
 
 <p>[Gene Kim] explains <a href="http://itrevolution.com/the-three-ways-principles-underpinning-devops/">The Three Ways</a> better than I can, but in short:</p>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: yak-shaving | mu]]></title>
-  <link href="http://mattjalexander.github.io/blog/categories/yak-shaving/atom.xml" rel="self"/>
-  <link href="http://mattjalexander.github.io/"/>
-  <updated>2013-09-29T09:31:05-07:00</updated>
-  <id>http://mattjalexander.github.io/</id>
+  <link href="http://alexander.mu/blog/categories/yak-shaving/atom.xml" rel="self"/>
+  <link href="http://alexander.mu/"/>
+  <updated>2013-09-29T09:34:38-07:00</updated>
+  <id>http://alexander.mu/</id>
   <author>
     <name><![CDATA[Matt Alexander]]></name>
     <email><![CDATA[mattjalexander@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[yak shaving in windows]]></title>
-    <link href="http://mattjalexander.github.io/blog/2013/09/18/yak-shaving-in-windows/"/>
+    <link href="http://alexander.mu/blog/2013/09/18/yak-shaving-in-windows/"/>
     <updated>2013-09-18T21:51:00-07:00</updated>
-    <id>http://mattjalexander.github.io/blog/2013/09/18/yak-shaving-in-windows</id>
+    <id>http://alexander.mu/blog/2013/09/18/yak-shaving-in-windows</id>
     <content type="html"><![CDATA[<p><img class="right" src="images/debian.jpg" width="213" height="160"></p>
 
 <h1>The Pain</h1>
